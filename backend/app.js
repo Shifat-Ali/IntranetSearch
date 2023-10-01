@@ -11,9 +11,8 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 // Routes
-app.use("/elastic-search",elasticRouter);
+app.use("/elastic-search", elasticRouter);
 
-
-app.listen(process.env.PORT || 8080, ()=>{
-    console.log(`Listening on port ${process.env.PORT || 8080}`)
+app.listen(process.env.PORT || 8080, () => {
+  console.log(`Listening on port ${process.env.PORT || 8080}`);
 });
