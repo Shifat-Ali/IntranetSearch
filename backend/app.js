@@ -3,8 +3,10 @@ import bodyParser from "body-parser";
 import morgan from "morgan";
 import elasticRouter from "./routes/elastic.js";
 import dotenv from "dotenv";
+import { connectDB } from "./config/connectDB.js";
 dotenv.config();
 
+connectDB();
 const app = express();
 
 app.use(morgan("dev"));
