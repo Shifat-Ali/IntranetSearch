@@ -1,23 +1,28 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
-const contentModelSchema = mongoose.Schema({
-  // schema of content model
-  content: {
-    // storing the content scraped
-    type: String,
-    required: true,
+const contentModelSchema = mongoose.Schema(
+  {
+    // schema of content model
+    content: {
+      // storing the content scraped
+      type: String,
+      required: true,
+    },
+    url: {
+      // url of website from which content is scraped
+      type: String,
+      required: true,
+    },
+    embeddings: {
+      type: [Number],
+      required: false,
+    },
   },
-  url: {
-    // url of website from which content is scraped
-    type: String,
-    required: true,
-  },
-  embeddings: {
-    type: [Number],
-    required: false,
-  },
-});
+  {
+    collection: process.env.COLLECTION_NAME,
+  }
+);
 
-const contentModel = mongoose.model("contentModel", contentModelSchema);
-
-module.exports = contentModel;
+export const contentModel = mongoose.model("contentModel", contentModelSchema);
