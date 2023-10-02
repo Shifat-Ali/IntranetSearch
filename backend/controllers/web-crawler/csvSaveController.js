@@ -1,4 +1,3 @@
-import fs from "fs"; // to write file in data directory
 import path from "path";
 import url from "url";
 import { contentModel } from "../../models/contentModel.js";
